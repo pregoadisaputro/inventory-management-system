@@ -19,13 +19,6 @@ public class Menu
         Console.WriteLine("6. Exit");
     }
 
-    public void UpdateQuantityMenu()
-    {
-        Console.WriteLine("1. Update Quantity");
-        Console.WriteLine("2. Add Quantity");
-        Console.WriteLine("3. Subtract Quantity");
-    }
-
     public void UserMenuChoice()
     {
         var isRunning = true;
