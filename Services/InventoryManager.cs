@@ -2,11 +2,13 @@ public class InventoryManager : IInventoryManager
 {
     private readonly ProductRepository _inventory;
     private readonly UserInput _userInput;
+    private readonly Menu _menu;
 
-    public InventoryManager(ProductRepository inventory, UserInput userInput)
+    public InventoryManager(ProductRepository inventory, UserInput userInput, Menu menu)
     {
         _inventory = inventory;
         _userInput = userInput;
+        _menu = menu;
     }
 
     public void AddProduct()
@@ -120,6 +122,8 @@ public class InventoryManager : IInventoryManager
 
         Console.Clear();
 
+        ShowAllProduct();
+
         string id = _userInput.GetValidateStringInput("Product ID: ");
 
         var product = _inventory.GetAll().FirstOrDefault(p => p.Id == id);
@@ -130,17 +134,46 @@ public class InventoryManager : IInventoryManager
             return;
         }
 
-        bool isRunning = true;
+        Console.WriteLine($"Selected Product: {product.Id}");
+        Console.WriteLine($"Current Quantity: {product.Quantity}");
+        Console.WriteLine($"Total Value: {product.TotalValue:C}");
 
-        while (isRunning)
+        _menu.UpdateQuantityMenu();
+
+        string choice = _userInput.GetValidateStringInput("Choice: ");
+
+        switch (choice)
         {
-            string choice = _userInput.GetValidateStringInput("Choice: ");
+            case "1":
+                int newQty = _userInput.GetValidateIntInput("Amount to update: ");
+                product.Quantity = newQty;
+                break;
 
-            switch (choice)
-            {
-                case "1":
-                    break;
-            }
+            case "2":
+                int addQty = _userInput.GetValidateIntInput("Amount to add: ");
+                product.Quantity += addQty;
+                break;
+
+            case "3":
+                int subtractQty = _userInput.GetValidateIntInput("Amount to subtract: ");
+
+                if (product.Quantity - subtractQty < 0)
+                {
+                    Console.WriteLine("Amount cannot be negative");
+                    return;
+                }
+                else
+                {
+                    product.Quantity -= subtractQty;
+                    Console.WriteLine("Success: Quantity subtracted.");
+                }
+                break;
         }
+
+        Console.WriteLine("Success: Quantity updated.");
+        Console.WriteLine(
+            $"Updated Quantity: ID: {product.Id} | Name: {product.Name} | Quantity: {product.Quantity}"
+        );
+        Console.WriteLine($"New Total Value: {product.TotalValue:C}");
     }
 }
