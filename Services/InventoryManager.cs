@@ -39,7 +39,23 @@ public class InventoryManager : IInventoryManager
         Console.WriteLine($"ID: {id} | Name: {name} | Quantity: {quantity} | Price: {price:C}");
     }
 
-    public void ShowAllProduct() { }
+    public void ShowAllProduct()
+    {
+        if (_inventory.GetAll().Count == 0)
+        {
+            Console.WriteLine("Product is empty.");
+            return;
+        }
+        else
+        {
+            foreach (var product in _inventory.GetAll())
+            {
+                Console.WriteLine(
+                    $"ID: {product.Id} | Name: {product.Name} | Quantity: {product.Quantity} | Price: {product.Price:C}"
+                );
+            }
+        }
+    }
 
     public void FindProduct() { }
 
