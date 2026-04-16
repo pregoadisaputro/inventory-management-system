@@ -1,3 +1,5 @@
+namespace InventoryManagement.Models;
+
 public class Product
 {
     public required string Id { get; init; }

@@ -1,3 +1,8 @@
+using InventoryManagement.Interfaces;
+using InventoryManagement.Models;
+
+namespace InventoryManagement.Data;
+
 public class ProductRepository : IProductRepository
 {
     private List<Product> _products = new List<Product>();

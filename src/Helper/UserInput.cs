@@ -1,12 +1,7 @@
-public class UserInput : IUserInput
+namespace InventoryManagement.Helper;
+
+public class UserInput
 {
-    private readonly ProductRepository _product;
-
-    public UserInput(ProductRepository product)
-    {
-        _product = product;
-    }
-
     public string GetValidateStringInput(string prompt)
     {
         while (true)

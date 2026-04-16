@@ -1,4 +1,6 @@
-public class Menu : IMenu
+namespace InventoryManagement.Services;
+
+public class Menu
 {
     private readonly InventoryManager _manager;
 

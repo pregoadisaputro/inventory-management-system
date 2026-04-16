@@ -1,9 +1,15 @@
-public class InventoryManager : IInventoryManager
+using InventoryManagement.Helper;
+using InventoryManagement.Interfaces;
+using InventoryManagement.Models;
+
+namespace InventoryManagement.Services;
+
+public class InventoryManager
 {
-    private readonly ProductRepository _inventory;
+    private readonly IProductRepository _inventory;
     private readonly UserInput _userInput;
 
-    public InventoryManager(ProductRepository inventory, UserInput userInput)
+    public InventoryManager(IProductRepository inventory, UserInput userInput)
     {
         _inventory = inventory;
         _userInput = userInput;

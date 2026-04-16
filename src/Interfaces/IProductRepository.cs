@@ -1,3 +1,7 @@
+using InventoryManagement.Models;
+
+namespace InventoryManagement.Interfaces;
+
 public interface IProductRepository
 {
     List<Product> GetAll();
