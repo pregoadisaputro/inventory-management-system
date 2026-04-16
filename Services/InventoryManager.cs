@@ -51,7 +51,7 @@ public class InventoryManager : IInventoryManager
             foreach (var product in _inventory.GetAll())
             {
                 Console.WriteLine(
-                    $"ID: {product.Id} | Name: {product.Name} | Quantity: {product.Quantity} | Price: {product.Price:C}"
+                    $"ID: {product.Id} | Name: {product.Name} | Quantity: {product.Quantity} | Price: {product.Price:C} | Total Value: {product.TotalValue:C}"
                 );
             }
         }
