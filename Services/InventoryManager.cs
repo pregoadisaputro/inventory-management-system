@@ -1,4 +1,4 @@
-public class InventoryManager
+public class InventoryManager : IInventoryManager
 {
     private readonly ProductRepository _inventory;
 
@@ -6,4 +6,12 @@ public class InventoryManager
     {
         _inventory = inventory;
     }
+
+    public void AddProduct() { }
+
+    public void ShowAllProduct() { }
+
+    public void FindProduct() { }
+
+    public void DeleteProduct() { }
 }
