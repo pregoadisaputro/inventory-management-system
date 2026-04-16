@@ -2,7 +2,7 @@
 
 A modular console-based application built with C# and .NET to manage product inventory efficiently. This project focuses on clean code, Object-Oriented Programming (OOP) principles, and a decoupled architecture.
 
-## 🚀 Features
+## Features
 
 - **Add Products:** Quickly register new items with unique IDs, names, and pricing.
 - **Manage Stock:** Update, add, or subtract quantities for existing products.
@@ -10,7 +10,7 @@ A modular console-based application built with C# and .NET to manage product inv
 - **Input Validation:** Robust handling of user input to prevent data errors.
 - **Real-time Calculations:** Automatically calculates total inventory value.
 
-## 🛠 Tech Stack & Architecture
+## Tech Stack & Architecture
 
 - **Language:** C# (.NET)
 - **Pattern:** Repository Pattern & Service-Based Architecture.
@@ -19,14 +19,14 @@ A modular console-based application built with C# and .NET to manage product inv
   - **Encapsulation:** Private fields and properties to protect data integrity.
   - **Dependency Injection:** Constructors are used to inject dependencies, making the system modular and testable.
 
-## 📁 Project Structure
+## Project Structure
 
 - **/Interfaces:** Defines the contracts for repositories and services.
 - **/Data:** Contains the `ProductRepository` and data models.
 - **/Services:** Implements the core business logic (`InventoryManager`).
 - **/Helper:** Contains `UserInput` and `Menu` for UI interactions.
 
-## 🏃 Getting Started
+## Getting Started
 
 ### Prerequisites
 
