@@ -57,7 +57,25 @@ public class InventoryManager : IInventoryManager
         }
     }
 
-    public void FindProduct() { }
+    public void FindProduct()
+    {
+        Console.Clear();
+
+        string id = _userInput.GetValidateStringInput("Product ID: ");
+
+        var products = _inventory.GetAll().FirstOrDefault(p => p.Id == id);
+
+        if (products == null)
+        {
+            Console.WriteLine($"Product with ID: {id} not exist");
+            return;
+        }
+
+        Console.WriteLine($"Product with ID: {id} was found.");
+        Console.WriteLine(
+            $"ID: {products.Id} | Name: {products.Name} | Quantity: {products.Quantity} | Price: {products.Price:C} | Total Value: {products.TotalValue:C}"
+        );
+    }
 
     public void DeleteProduct() { }
 }
