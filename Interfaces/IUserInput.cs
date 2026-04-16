@@ -1,6 +1,6 @@
 public interface IUserInput
 {
-    void GetValidateStringInput(string prompt);
-    void GetValidateIntInput(string prompt);
-    void GetValidateDecimalInput(string prompt);
+    string GetValidateStringInput(string prompt);
+    int GetValidateIntInput(string prompt);
+    decimal GetValidateDecimalInput(string prompt);
 }
