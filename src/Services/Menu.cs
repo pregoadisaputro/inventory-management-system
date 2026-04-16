@@ -58,7 +58,7 @@ public class Menu
                     break;
 
                 case "4":
-                    _manager.UpdateQuantityProduct(this);
+                    _manager.UpdateQuantityProduct();
                     Console.WriteLine("Press any key to continue...");
                     Console.ReadKey();
                     break;

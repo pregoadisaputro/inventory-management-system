@@ -132,7 +132,7 @@ public class InventoryManager
         Console.WriteLine($"Product with ID: {id} was removed.");
     }
 
-    public void UpdateQuantityProduct(Menu menu)
+    public void UpdateQuantityProduct()
     {
         Console.Clear();
 
@@ -158,7 +158,9 @@ public class InventoryManager
         Console.WriteLine($"Current Quantity: {product.Quantity}");
         Console.WriteLine($"Total Value: {product.TotalValue:C}");
 
-        menu.UpdateQuantityMenu();
+        Console.WriteLine("1. Set New Quantity");
+        Console.WriteLine("2. Add to Quantity");
+        Console.WriteLine("3. Subtract from Quantity");
 
         var choice = _userInput.GetValidateStringInput("Choice: ");
 
