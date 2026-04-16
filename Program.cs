@@ -1,8 +1,7 @@
-﻿ProductRepository product = new ProductRepository();
-UserInput userInput = new UserInput(product);
+﻿var productRepo = new ProductRepository();
+var inputHandler = new UserInput(productRepo);
 
-InventoryManager manager = new InventoryManager(product, userInput);
+var manager = new InventoryManager(productRepo, inputHandler);
+var mainMenu = new Menu(manager);
 
-Menu menu = new Menu(manager);
-
-menu.UserMenuChoice();
+mainMenu.UserMenuChoice();

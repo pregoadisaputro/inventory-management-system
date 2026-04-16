@@ -26,14 +26,14 @@ public class Menu : IMenu
 
     public void UserMenuChoice()
     {
-        bool isRunning = true;
+        var isRunning = true;
 
         while (isRunning)
         {
             DisplayMenu();
 
             Console.WriteLine("Select an option (1-6): ");
-            string choice = Console.ReadLine() ?? "";
+            var choice = Console.ReadLine() ?? "";
 
             switch (choice)
             {

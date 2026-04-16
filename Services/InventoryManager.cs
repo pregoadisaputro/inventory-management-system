@@ -12,7 +12,7 @@ public class InventoryManager : IInventoryManager
     public void AddProduct()
     {
         Console.Clear();
-        string id = _userInput.GetValidateStringInput("Product ID: ");
+        var id = _userInput.GetValidateStringInput("Product ID: ");
 
         if (_inventory.GetAll().Any(p => p.Id == id))
         {
@@ -20,7 +20,7 @@ public class InventoryManager : IInventoryManager
             return;
         }
 
-        string name = _userInput.GetValidateStringInput("Product name: ");
+        var name = _userInput.GetValidateStringInput("Product name: ");
 
         if (_inventory.GetAll().Any(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
         {
@@ -28,9 +28,9 @@ public class InventoryManager : IInventoryManager
             return;
         }
 
-        int quantity = _userInput.GetValidateIntInput("Quantity: ");
+        var quantity = _userInput.GetValidateIntInput("Quantity: ");
 
-        decimal price = _userInput.GetValidateDecimalInput("Price: ");
+        var price = _userInput.GetValidateDecimalInput("Price: ");
 
         var newProduct = new Product(id, name, quantity, price);
         _inventory.GetAll().Add(newProduct);
@@ -69,7 +69,7 @@ public class InventoryManager : IInventoryManager
             return;
         }
 
-        string id = _userInput.GetValidateStringInput("Product ID: ");
+        var id = _userInput.GetValidateStringInput("Product ID: ");
 
         var products = _inventory.GetAll().FirstOrDefault(p => p.Id == id);
 
@@ -98,7 +98,7 @@ public class InventoryManager : IInventoryManager
         Console.WriteLine("Current Product:");
         ShowAllProduct();
 
-        string id = _userInput.GetValidateStringInput("Product ID: ");
+        var id = _userInput.GetValidateStringInput("Product ID: ");
 
         var product = _inventory.GetAll().FirstOrDefault(p => p.Id == id);
 
@@ -124,7 +124,7 @@ public class InventoryManager : IInventoryManager
 
         ShowAllProduct();
 
-        string id = _userInput.GetValidateStringInput("Product ID: ");
+        var id = _userInput.GetValidateStringInput("Product ID: ");
 
         var product = _inventory.GetAll().FirstOrDefault(p => p.Id == id);
 
@@ -140,22 +140,22 @@ public class InventoryManager : IInventoryManager
 
         menu.UpdateQuantityMenu();
 
-        string choice = _userInput.GetValidateStringInput("Choice: ");
+        var choice = _userInput.GetValidateStringInput("Choice: ");
 
         switch (choice)
         {
             case "1":
-                int newQty = _userInput.GetValidateIntInput("Amount to update: ");
+                var newQty = _userInput.GetValidateIntInput("Amount to update: ");
                 product.Quantity = newQty;
                 break;
 
             case "2":
-                int addQty = _userInput.GetValidateIntInput("Amount to add: ");
+                var addQty = _userInput.GetValidateIntInput("Amount to add: ");
                 product.Quantity += addQty;
                 break;
 
             case "3":
-                int subtractQty = _userInput.GetValidateIntInput("Amount to subtract: ");
+                var subtractQty = _userInput.GetValidateIntInput("Amount to subtract: ");
 
                 if (product.Quantity - subtractQty < 0)
                 {
