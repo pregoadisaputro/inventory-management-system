@@ -18,7 +18,7 @@ public class UserInput : IUserInput
     {
         while (true)
         {
-            Console.WriteLine(prompt);
+            Console.Write(prompt);
             string input = Console.ReadLine()?.Trim() ?? "";
 
             if (string.IsNullOrWhiteSpace(input))
@@ -35,7 +35,7 @@ public class UserInput : IUserInput
     {
         while (true)
         {
-            Console.WriteLine(prompt);
+            Console.Write(prompt);
             string input = Console.ReadLine()?.Trim() ?? "";
 
             if (!int.TryParse(input, out int value))
@@ -52,7 +52,7 @@ public class UserInput : IUserInput
     {
         while (true)
         {
-            Console.WriteLine(prompt);
+            Console.Write(prompt);
             string input = Console.ReadLine()?.Trim() ?? "";
 
             if (!decimal.TryParse(input, out decimal value))
