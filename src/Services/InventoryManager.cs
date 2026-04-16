@@ -9,6 +9,13 @@ public class InventoryManager : IInventoryManager
         _userInput = userInput;
     }
 
+    public bool IsProductEmpty()
+    {
+        var currentInventory = _inventory.GetAll();
+
+        return currentInventory == null || currentInventory.Count == 0;
+    }
+
     public void AddProduct()
     {
         Console.Clear();
@@ -50,7 +57,7 @@ public class InventoryManager : IInventoryManager
     {
         Console.Clear();
 
-        if (_userInput.IsProductEmpty())
+        if (IsProductEmpty())
         {
             Console.WriteLine("Product is empty.");
             return;
@@ -70,7 +77,7 @@ public class InventoryManager : IInventoryManager
     {
         Console.Clear();
 
-        if (_userInput.IsProductEmpty())
+        if (IsProductEmpty())
         {
             Console.WriteLine("Product is empty.");
             return;
@@ -96,7 +103,7 @@ public class InventoryManager : IInventoryManager
     {
         Console.Clear();
 
-        if (_userInput.IsProductEmpty())
+        if (IsProductEmpty())
         {
             Console.WriteLine("Product is empty.");
             return;
@@ -123,7 +130,7 @@ public class InventoryManager : IInventoryManager
     {
         Console.Clear();
 
-        if (_userInput.IsProductEmpty())
+        if (IsProductEmpty())
         {
             Console.WriteLine("Product is empty.");
             return;

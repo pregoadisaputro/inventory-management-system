@@ -7,12 +7,12 @@ public class UserInput : IUserInput
         _product = product;
     }
 
-    public bool IsProductEmpty()
-    {
-        var currentInventory = _product.GetAll();
+    // public bool IsProductEmpty()
+    // {
+    //     var currentInventory = _product.GetAll();
 
-        return currentInventory == null || currentInventory.Count == 0;
-    }
+    //     return currentInventory == null || currentInventory.Count == 0;
+    // }
 
     public string GetValidateStringInput(string prompt)
     {
