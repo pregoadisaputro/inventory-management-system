@@ -83,5 +83,28 @@ public class InventoryManager : IInventoryManager
         );
     }
 
-    public void DeleteProduct() { }
+    public void DeleteProduct()
+    {
+        if (_userInput.IsProductEmpty())
+        {
+            Console.WriteLine("Product is empty.");
+            return;
+        }
+
+        Console.WriteLine("Current Product:");
+        ShowAllProduct();
+
+        string id = _userInput.GetValidateStringInput("Product ID: ");
+
+        var product = _inventory.GetAll().FirstOrDefault(p => p.Id == id);
+
+        if (product == null)
+        {
+            Console.WriteLine($"Product with ID: {id} not exist.");
+            return;
+        }
+
+        _inventory.GetAll().Remove(product);
+        Console.WriteLine($"Product with ID: {id} was removed.");
+    }
 }
