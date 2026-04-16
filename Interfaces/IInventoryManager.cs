@@ -4,5 +4,5 @@ public interface IInventoryManager
     void ShowAllProduct();
     void FindProduct();
     void DeleteProduct();
-    void UpdateQuantityProduct();
+    void UpdateQuantityProduct(Menu menu);
 }

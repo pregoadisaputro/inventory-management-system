@@ -2,13 +2,11 @@ public class InventoryManager : IInventoryManager
 {
     private readonly ProductRepository _inventory;
     private readonly UserInput _userInput;
-    private readonly Menu _menu;
 
-    public InventoryManager(ProductRepository inventory, UserInput userInput, Menu menu)
+    public InventoryManager(ProductRepository inventory, UserInput userInput)
     {
         _inventory = inventory;
         _userInput = userInput;
-        _menu = menu;
     }
 
     public void AddProduct()
@@ -112,7 +110,7 @@ public class InventoryManager : IInventoryManager
         Console.WriteLine($"Product with ID: {id} was removed.");
     }
 
-    public void UpdateQuantityProduct()
+    public void UpdateQuantityProduct(Menu menu)
     {
         if (_userInput.IsProductEmpty())
         {
@@ -138,7 +136,7 @@ public class InventoryManager : IInventoryManager
         Console.WriteLine($"Current Quantity: {product.Quantity}");
         Console.WriteLine($"Total Value: {product.TotalValue:C}");
 
-        _menu.UpdateQuantityMenu();
+        menu.UpdateQuantityMenu();
 
         string choice = _userInput.GetValidateStringInput("Choice: ");
 

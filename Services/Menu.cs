@@ -50,7 +50,7 @@ public class Menu : IMenu
                     break;
 
                 case "4":
-                    _manager.UpdateQuantityProduct();
+                    _manager.UpdateQuantityProduct(this);
                     break;
 
                 case "5":
