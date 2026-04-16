@@ -53,7 +53,7 @@ public class InventoryManager
             Price = price,
         };
 
-        _inventory.GetAll().Add(newProduct);
+        _inventory.Add(newProduct);
 
         Console.WriteLine("Product Added!");
         Console.WriteLine($"ID: {id} | Name: {name} | Quantity: {quantity} | Price: {price:C}");
@@ -128,7 +128,7 @@ public class InventoryManager
             return;
         }
 
-        _inventory.GetAll().Remove(product);
+        _inventory.Remove(product);
         Console.WriteLine($"Product with ID: {id} was removed.");
     }
 
