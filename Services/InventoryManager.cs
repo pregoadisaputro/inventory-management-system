@@ -32,7 +32,14 @@ public class InventoryManager : IInventoryManager
 
         var price = _userInput.GetValidateDecimalInput("Price: ");
 
-        var newProduct = new Product(id, name, quantity, price);
+        var newProduct = new Product
+        {
+            Id = id,
+            Name = name,
+            Quantity = quantity,
+            Price = price,
+        };
+
         _inventory.GetAll().Add(newProduct);
 
         Console.WriteLine("Product Added!");
