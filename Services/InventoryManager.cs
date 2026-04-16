@@ -41,7 +41,7 @@ public class InventoryManager : IInventoryManager
 
     public void ShowAllProduct()
     {
-        if (_inventory.GetAll().Count == 0)
+        if (_userInput.IsProductEmpty())
         {
             Console.WriteLine("Product is empty.");
             return;
@@ -59,6 +59,12 @@ public class InventoryManager : IInventoryManager
 
     public void FindProduct()
     {
+        if (_userInput.IsProductEmpty())
+        {
+            Console.WriteLine("Product is empty.");
+            return;
+        }
+
         Console.Clear();
 
         string id = _userInput.GetValidateStringInput("Product ID: ");

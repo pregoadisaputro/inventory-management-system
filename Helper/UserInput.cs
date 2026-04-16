@@ -1,5 +1,19 @@
 public class UserInput : IUserInput
 {
+    private readonly ProductRepository _product;
+
+    public UserInput(ProductRepository product)
+    {
+        _product = product;
+    }
+
+    public bool IsProductEmpty()
+    {
+        var currentInventory = _product.GetAll();
+
+        return currentInventory == null || currentInventory.Count == 0;
+    }
+
     public string GetValidateStringInput(string prompt)
     {
         while (true)
