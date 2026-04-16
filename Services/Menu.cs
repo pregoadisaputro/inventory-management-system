@@ -28,10 +28,10 @@ public class Menu : IMenu
     {
         bool isRunning = true;
 
-        DisplayMenu();
-
         while (isRunning)
         {
+            DisplayMenu();
+
             Console.WriteLine("Select an option (1-6): ");
             string choice = Console.ReadLine() ?? "";
 
@@ -39,22 +39,32 @@ public class Menu : IMenu
             {
                 case "1":
                     _manager.AddProduct();
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
                     break;
 
                 case "2":
                     _manager.ShowAllProduct();
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
                     break;
 
                 case "3":
                     _manager.FindProduct();
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
                     break;
 
                 case "4":
                     _manager.UpdateQuantityProduct(this);
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
                     break;
 
                 case "5":
                     _manager.DeleteProduct();
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
                     break;
 
                 case "6":

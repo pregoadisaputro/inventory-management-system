@@ -41,6 +41,8 @@ public class InventoryManager : IInventoryManager
 
     public void ShowAllProduct()
     {
+        Console.Clear();
+
         if (_userInput.IsProductEmpty())
         {
             Console.WriteLine("Product is empty.");
@@ -59,13 +61,13 @@ public class InventoryManager : IInventoryManager
 
     public void FindProduct()
     {
+        Console.Clear();
+
         if (_userInput.IsProductEmpty())
         {
             Console.WriteLine("Product is empty.");
             return;
         }
-
-        Console.Clear();
 
         string id = _userInput.GetValidateStringInput("Product ID: ");
 
@@ -85,13 +87,13 @@ public class InventoryManager : IInventoryManager
 
     public void DeleteProduct()
     {
+        Console.Clear();
+
         if (_userInput.IsProductEmpty())
         {
             Console.WriteLine("Product is empty.");
             return;
         }
-
-        Console.Clear();
 
         Console.WriteLine("Current Product:");
         ShowAllProduct();
@@ -112,13 +114,13 @@ public class InventoryManager : IInventoryManager
 
     public void UpdateQuantityProduct(Menu menu)
     {
+        Console.Clear();
+
         if (_userInput.IsProductEmpty())
         {
             Console.WriteLine("Product is empty.");
             return;
         }
-
-        Console.Clear();
 
         ShowAllProduct();
 
