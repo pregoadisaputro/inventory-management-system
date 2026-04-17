@@ -68,14 +68,9 @@ public class JsonProductRepository : IProductRepository
 
     private void LogActivity(string message)
     {
-        if (File.Exists(_logFilePath))
+        if (File.Exists(_logFilePath) && new FileInfo(_logFilePath).Length > 100 * 1024)
         {
-            var fileSize = new FileInfo(_logFilePath).Length;
-
-            if (fileSize > 100 * 1024)
-            {
-                File.WriteAllText(_logFilePath, "LOG CLEARED DUE TO SIZE\n");
-            }
+            File.WriteAllText(_logFilePath, $"--- LOG RESET AT {DateTime.Now} ---\n");
         }
 
         var logEntry = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] {message}{Environment.NewLine}";
