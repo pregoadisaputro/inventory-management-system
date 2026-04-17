@@ -47,7 +47,7 @@ public class JsonProductRepository : IProductRepository
 
         try
         {
-            string json = File.ReadAllText(_jsonFilePath);
+            var json = File.ReadAllText(_jsonFilePath);
             return JsonSerializer.Deserialize<List<Product>>(json) ?? new List<Product>();
         }
         catch (JsonException ex)
@@ -62,7 +62,7 @@ public class JsonProductRepository : IProductRepository
     private void SaveToFile()
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(_products, options);
+        var json = JsonSerializer.Serialize(_products, options);
         File.WriteAllText(_jsonFilePath, json);
     }
 
@@ -70,7 +70,7 @@ public class JsonProductRepository : IProductRepository
     {
         if (File.Exists(_logFilePath))
         {
-            long fileSize = new FileInfo(_logFilePath).Length;
+            var fileSize = new FileInfo(_logFilePath).Length;
 
             if (fileSize > 100 * 1024)
             {
@@ -78,7 +78,7 @@ public class JsonProductRepository : IProductRepository
             }
         }
 
-        string logEntry = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] {message}{Environment.NewLine}";
+        var logEntry = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] {message}{Environment.NewLine}";
         File.AppendAllText(_logFilePath, logEntry);
     }
 }
