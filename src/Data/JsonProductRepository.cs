@@ -6,12 +6,21 @@ namespace InventoryManagement.Data;
 
 public class JsonProductRepository : IProductRepository
 {
-    private readonly string _jsonFilePath = "products.json";
-    private readonly string _logFilePath = "activity.txt";
-    private List<Product> _products;
+    private readonly string _storageFolder = "Storage";
+    private readonly string _jsonFilePath;
+    private readonly string _logFilePath;
+    private List<Product> _products = new();
 
     public JsonProductRepository()
     {
+        _jsonFilePath = Path.Combine(_storageFolder, "products.json");
+        _logFilePath = Path.Combine(_storageFolder, "activity.txt");
+
+        if (!Directory.Exists(_storageFolder))
+        {
+            Directory.CreateDirectory(_storageFolder);
+        }
+
         _products = LoadFromFile();
     }
 
@@ -41,8 +50,11 @@ public class JsonProductRepository : IProductRepository
             string json = File.ReadAllText(_jsonFilePath);
             return JsonSerializer.Deserialize<List<Product>>(json) ?? new List<Product>();
         }
-        catch
+        catch (JsonException ex)
         {
+            Console.WriteLine($"Error, JSON file is corrupted: {ex.Message}");
+            Console.WriteLine($"Please check Storage/products.json for syntax errors.");
+
             return new List<Product>();
         }
     }
