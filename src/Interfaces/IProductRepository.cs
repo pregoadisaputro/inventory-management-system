@@ -4,7 +4,7 @@ namespace InventoryManagement.Interfaces;
 
 public interface IProductRepository
 {
-    List<Product> GetAll();
+    IReadOnlyList<Product> GetAll();
     void Add(Product product);
     void Remove(Product product);
 }
